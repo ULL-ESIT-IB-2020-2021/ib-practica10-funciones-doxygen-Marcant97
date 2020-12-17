@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <string>
-
+int cont(std::string linea);
 char cesar(std::string cadena , int x);
 char cesar1(std::string cadena , int x);
 char xor1(std::string clave, std::string linea);

@@ -19,6 +19,20 @@
 #include <cstdlib>
 #include <vector>
 #include "cripto.h"
+//modificación de clase funcion.
+int cont(std::string linea){
+  int contador{0};
+  for (unsigned int i=0; i<linea.length(); i++){
+    char caracter; 
+    caracter=linea[i]; 
+    if(caracter=='a'){
+      contador++;
+    }
+  } 
+  return contador;
+}
+
+
 //Cifrado de César
 char cesar(std::string cadena , int x){
   for (unsigned int i=0; i<cadena.length(); i++){
