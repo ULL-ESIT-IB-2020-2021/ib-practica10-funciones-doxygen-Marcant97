@@ -36,32 +36,26 @@ char cesar1(std::string cadena , int x){
 
 //Cifrado Xor función
 
-char xor1(std::string clave, std::string linea){
-  std::vector<char> clavexor{};
-  std::vector<char> resultxor{};
-  char var{};
-  int var1{};
-  int var2{};
-  int resultado{};
-  for (unsigned int i=0;i<clave.length();i++){
-    var=((clave[i])^128);
-    clavexor.emplace_back(var);
-  }
-  for (unsigned int i=0; i<=linea.length(); i++){
-    var1=(linea[i]);
-    for (unsigned int j=0; j<clavexor.size(); j++){
-      if(j==(clavexor.size())){
-        j=0;
-      }
-      var2=(clavexor[j]); 
-      resultado=((var1)^(var2));
-      resultxor.emplace_back(resultado);  
-    }
-  }
-//Mostar elemntos del vector final, es decir mensaje cifrado.
-  for (unsigned int i=0; i<resultxor.size();i++){
-    std::cout<<resultxor[i]<<std::endl;
-  }
- 
+char xor1(std::string linea, std::string clave){
+  std::cout << "- - - -XOR- - - -" << std::endl;
+  std::vector<char> clavexor;
+  std::vector<char> resultxor;
+  int counter{0};
 
+  for (auto &character: clave){
+    clavexor.emplace_back(character ^ 128);
+  }
+
+  for (auto character: linea){
+    if(counter == clavexor.size()) counter = 0;
+    char final_xor = character ^ clavexor[counter];
+    resultxor.emplace_back(final_xor);
+    counter++;
+  }
+
+  //Mostar elemntos del vector final, es decir mensaje cifrado.
+
+  for (auto &element: resultxor){
+    std::cout << element;
+  }
 }
